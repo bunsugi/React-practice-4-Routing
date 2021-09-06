@@ -1,8 +1,6 @@
 import { Route, Switch } from "react-router-dom";
 import { Home } from "../Home";
-import { Page1 } from "../Page1";
-import { Page1DetailA } from "../Page1DetailA";
-import { Page1DetailB } from "../Page1DetailB";
+import { Page404 } from "../Page404";
 import { page1Routes } from "./Page1Routes";
 import { Page2Routes } from "./Page2Routes";
 
@@ -23,7 +21,7 @@ export const Router = () => {
                   exact={route.exact}
                   path={`${url}${route.path}`}
                 >
-                {route.children}
+                  {route.children}
                 </Route>
               );
             })}
@@ -47,6 +45,9 @@ export const Router = () => {
           </Switch>
         )}
       ></Route>
+      <Route path="*">
+        <Page404 />
+      </Route>
     </Switch>
   );
 };
